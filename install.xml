@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Call for Price if zero</name>
+    <code>Call for Price if zero</code>
+    <version>1.9</version>
+    <author>Chipmunk</author>
+    <link>https://www.fun-in.com.tw/</link>
+
+    <file path="system/library/cart/currency.php">
+        <operation error="skip" info="Add price call and free">
+            <search><![CDATA[$string = '';]]></search>
+            <add position="replace"><![CDATA[
+                if ($format && ((int)$number > 999998)) {
+                    return $this->language->get('text_price_call');
+                }
+                if ($format && ((int)$number == 0)) { 
+                    return $this->language->get('text_price_depends');
+                }
+
+                $string = '';
+            ]]></add>
+        </operation>
+    </file> 
+
+    <file path="catalog/language/en-gb/en-gb.php">
+        <operation>
+            <search><![CDATA[$_['text_no_results']       = 'No results!';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">Call</span>';
+$_['text_price_free']       = '<span style="color: #090;">Free</span>';
+$_['text_price_depends']    = '<span style="color: #009;">Depends</span>';
+$_['text_price_collect']    = '<span style="color: #009;">Collect</span>';
+                ]]></add>
+        </operation>
+    </file> 
+
+    <file path="admin/language/en-gb/en-gb.php">
+        <operation>
+            <search><![CDATA[$_['text_no_results']               = 'No results!';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">Call</span>';
+$_['text_price_free']       = '<span style="color: #090;">Free</span>';
+$_['text_price_depends']    = '<span style="color: #009;">Depends</span>';
+$_['text_price_collect']    = '<span style="color: #009;">Collect</span>';
+                ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_enabled']                  = 'Enabled';]]></search>
+            <add position="replace"><![CDATA[$_['text_enabled']                  = '<span style="color: #090;">Enabled</span>';]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_disabled']                 = 'Disabled';]]></search>
+            <add position="replace"><![CDATA[$_['text_disabled']                 = '<span style="color: #900;">Disabled</span>';]]></add>
+        </operation>
+    </file> 
+
+    <file path="catalog/language/zh-TW/zh-TW.php">
+        <operation>
+            <search><![CDATA[$_['text_no_results']       = '查無符合資料!';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">來電詢價</span>';
+$_['text_price_free']       = '<span style="color: #090;">免費</span>';
+$_['text_price_depends']    = '<span style="color: #090;">台灣免運</span>';
+$_['text_price_collect']    = '<span style="color: #009;">運費到付</span>';
+                ]]></add>
+        </operation>
+    </file> 
+
+    <file path="admin/language/zh-TW/zh-TW.php">
+        <operation>
+            <search trim="true"><![CDATA[$_['text_no_results']           = '尚無資料！';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">來電詢價</span>';
+$_['text_price_free']       = '<span style="color: #090;">免費</span>';
+$_['text_price_depends']    = '<span style="color: #090;">台灣免運</span>';
+$_['text_price_collect']    = '<span style="color: #009;">運費到付</span>';
+                ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_enabled']             = '啟用';]]></search>
+            <add position="replace"><![CDATA[$_['text_enabled']                  = '<span style="color: #090;">啟用</span>';]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_disabled']                = '停用';]]></search>
+            <add position="replace"><![CDATA[$_['text_disabled']                 = '<span style="color: #900;">停用</span>';]]></add>
+        </operation>
+    </file> 
+
+
+    <file path="catalog/language/zh-cn/zh-cn.php">
+        <operation>
+            <search><![CDATA[$_['text_no_results']       = '无符合条件的结果';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">来电询价</span>';
+$_['text_price_free']       = '<span style="color: #090;">免费</span>';
+$_['text_price_depends']    = '<span style="color: #009;">询价</span>';
+$_['text_price_collect']    = '<span style="color: #009;">运费到付</span>';
+                ]]></add>
+        </operation>
+    </file> 
+
+    <file path="admin/language/zh-cn/zh-cn.php">
+        <operation>
+            <search trim="true"><![CDATA[$_['text_no_results']               = '没有符合条件的结果！';]]></search>
+            <add position="after"><![CDATA[
+$_['text_price_call']       = '<span style="color: #900;">来电询价</span>';
+$_['text_price_free']       = '<span style="color: #090;">免费</span>';
+$_['text_price_depends']    = '<span style="color: #009;">询价</span>';
+$_['text_price_collect']    = '<span style="color: #009;">运费到付</span>';
+                ]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_enabled']                  = '启用';]]></search>
+            <add position="replace"><![CDATA[$_['text_enabled']                  = '<span style="color: #090;">启用</span>';]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[$_['text_disabled']                 = '停用';]]></search>
+            <add position="replace"><![CDATA[$_['text_disabled']                 = '<span style="color: #900;">停用</span>';]]></add>
+        </operation>
+    </file> 
+
+</modification>
